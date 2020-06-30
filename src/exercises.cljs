@@ -17,4 +17,17 @@ defn process-value
 
 ; To check if 3 sides make a triangle, you need to check that every side is less than or equal to the sum of the other two sides.
 
-(defn triangle? [a b c] (and (< a (+ b c)) (< b (+ a c)) (< c (+
+(defn triangle? [a b c] (and (< a (+ b c)) (< b (+ a c)) (< c (+ b a))
+                             
+                             
+; Exercise03
+; Write a function classify-triangle, which, given 3 numbers, returns whether a triangle is equilateral (3 equal sides), isosceles (2 equal sides), scalene, or, not a triangle.
+
+(defn triangle? [a b c] (and (< a (+ b c)) (< b (+ a c)) (< c (+ a b))))
+
+(defn classify-triangle
+  [a b c]
+  (cond (not (triangle? a b c)) :invalid
+        (= a b c) :equilateral
+        (or (= a b) (= b c) (= c a)) :isosceles
+        :else :scalene))
