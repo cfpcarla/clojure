@@ -86,3 +86,8 @@ defn process-value
   (->> s
        (map points)
        (apply +)))
+
+; Exercise07
+; Write a function count-if that counts the number of items in a collection that pass a certain predicate.
+
+(defn count-if [pred? coll] (count (filter pred? coll)))
