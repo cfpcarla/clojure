@@ -31,3 +31,14 @@ defn process-value
         (= a b c) :equilateral
         (or (= a b) (= b c) (= c a)) :isosceles
         :else :scalene))
+                             
+; Exercise04
+;  Write a function clamp to restrict a value to a given range:
+; (defn clamp [x min max])
+
+(defn clamp
+  [x min max]
+  (cond (<= min x max) x
+        (< x min) min
+        :else max))
+
