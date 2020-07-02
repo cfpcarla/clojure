@@ -220,3 +220,12 @@ defn partial-map
        (filter #{\0 \1 \2 \3 \4 \5 \6 \7 \8 \9})
        (take-last 10)
        (apply str)))
+
+;; Exercise 18 
+;; Run-length-encoding is a form of lossless data compression. For example, the array [:a :a :b :b :b :c :a :a :d :d] could be represented as: [[:a 2] [:b 3] [:c 1] [:a 2] [:d 2]]. Write a function to decode a run-length encoded 
+
+(defn run-length-decode
+  [runs]
+  (mapcat (fn [[val len]]
+            (repeat len val))
+          runs))
