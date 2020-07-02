@@ -111,3 +111,26 @@ defn process-value
 (defn convert-space-age
   [age source-planet target-planet]
   (int (* age (/ (lookup source-planet) (lookup target-planet)))))
+
+;; Exercise 09
+;; Devise a data model to represent a game of tic-tac-toe. For example, describe a game whose board currently looks like the below:
+;; _|X|O
+;; _|_|X
+;; O|_|_
+;; In your model, include a history of the moves played. Write a function turns-played that returns how many turns have been played.
+
+(def game-state
+  {:current-player "X"
+   :board [nil "X" "O" nil nil "X" "O" nil nil]
+   :history [{:player "X"
+              :location 1}
+             {:player "O"
+              :location 2}
+             {:player "X"
+              :location 5}
+             {:player "O"
+              :location 6}]})
+
+(defn moves-played [state] (count (state :history)))
+
+(defn moves-played-alt [state] (count (remove nil? (state :board))))
