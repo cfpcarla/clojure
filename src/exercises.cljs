@@ -235,3 +235,11 @@ defn partial-map
 
 (def sumNumber [nums] (apply + nums))
 
+;; Exercise 20
+;; Write a function to sum a list of numbers, using an atom and doseq.
+
+(def sumListNumbers
+  [nums] (let [total (atom 0)]
+     (doseq [n nums]
+       (swap! sums + n))
+         @total))
