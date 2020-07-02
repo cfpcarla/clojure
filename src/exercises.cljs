@@ -180,3 +180,7 @@ defn process-value
   (-> info
       (update-in [:people id :name] string/upper-case)
       (update-in [:people id :points] + points)))
+
+;; Exercise 14 grouping thinks
+;; Given a list of strings, categorize them by their starting character.
+(defn categorize [strings] (group-by first strings))
