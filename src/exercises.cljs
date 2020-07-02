@@ -164,3 +164,19 @@ defn process-value
 ;; as well as an id, a keyword, and some value. Return the same map but with the person with the given id having the given keyword & value added to their data (see tests for an example).
 
 (defn add-info [info id key value] (assoc-in info [:people id key] value))
+
+;; Exercise 13 Update deep
+;; Write a function that takes a map with this structure:
+
+;; {:people {1 {:name "james"
+;;              :points 1}
+;;           2 {:name "rafd"
+;;              :points 5}}}
+;; as well as an id and a number. Return the same map but with the person with the given id having their name converted to upper-case and the given number added to their points.
+
+(require [clojure.string :as string])
+(defn update-info
+  [info id points]
+  (-> info
+      (update-in [:people id :name] string/upper-case)
+      (update-in [:people id :points] + points)))
