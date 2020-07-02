@@ -91,3 +91,23 @@ defn process-value
 ; Write a function count-if that counts the number of items in a collection that pass a certain predicate.
 
 (defn count-if [pred? coll] (count (filter pred? coll)))
+
+; Exercise08
+; Implement a function that lets someone convert their age on one planet to their age on another.
+;; For example:
+;; 30 years on Earth is about 1 year on Saturn (a year being a single revolution around the sun).
+;; 10 years on Mars is 78 years on Mercury. You will need to look up the relevant data on planets yourself.
+
+(def lookup
+  {:mercury 0.240867
+   :venus 0.61519726
+   :earth 1
+   :mars 1.8808158
+   :jupiter 11.862615
+   :saturn 29.447498
+   :uranus 84.016846
+   :neptune 164.79132})
+
+(defn convert-space-age
+  [age source-planet target-planet]
+  (int (* age (/ (lookup source-planet) (lookup target-planet)))))
