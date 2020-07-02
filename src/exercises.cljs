@@ -184,3 +184,17 @@ defn process-value
 ;; Exercise 14 grouping thinks
 ;; Given a list of strings, categorize them by their starting character.
 (defn categorize [strings] (group-by first strings))
+
+;; Exericse 15 - map transform
+;; Write a function that takes a map with the below format:
+;; {:disabled? true
+;;  :name "james"
+;;  :points 0}
+;; and returns a map with the :disabled? key removed, 1 added to the :points value, add a key called :activated added with the value "now"; all other keys should be left as-is.
+
+(defn activate
+  [person]
+  (-> person
+      (dissoc :disabled?)
+      (assoc :activated "now")
+      (update :points inc)))
