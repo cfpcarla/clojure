@@ -229,3 +229,9 @@ defn partial-map
   (mapcat (fn [[val len]]
             (repeat len val))
           runs))
+
+;; Exercise 19
+;; Write a function to sum a list of numbers, using apply.
+
+(def sumNumber [nums] (apply + nums))
+
