@@ -142,3 +142,14 @@ defn process-value
 
 
 (defn get-and-set [k v col] [(get col k) (assoc col k v)])
+
+;; exercise 11
+;; Read in a text file (assuming it's in the current directory), reverse the file's contents, and write the result to a new file (the name now prefixed by "rev-") .
+
+(require [clojure.string :as string])
+
+(defn reverse-file
+  [file-name]
+  ->> (slurp file-name)
+  string/reverse
+  (spit (str "rev-" file-name))))
