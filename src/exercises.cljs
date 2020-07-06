@@ -238,8 +238,13 @@ defn partial-map
 ;; Exercise 20
 ;; Write a function to sum a list of numbers, using an atom and doseq.
 
-(def sumListNumbers
+(defn sumListNumbers
   [nums] (let [total (atom 0)]
      (doseq [n nums]
        (swap! sums + n))
          @total))
+
+;; Exercise 21
+;; Write a function to sum a list of numbers, using reduce.
+(defn summingList
+  [values] (reduce + values))
