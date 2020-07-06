@@ -248,3 +248,14 @@ defn partial-map
 ;; Write a function to sum a list of numbers, using reduce.
 (defn summingList
   [values] (reduce + values))
+
+;; Exercise 22
+;; Given two sets of user interests, return sets indicating: (1) their common interests, (2) each of their unique interests, and (3) all of their interests.
+
+(require '[clojure.set :as set])
+(defn using-sets
+  [y z]
+  {:shared (set/intersection y z)
+   :all (set/union y z)
+   :unique-y (set/difference y z)
+   :unique-z (set/difference z y))})
