@@ -290,3 +290,15 @@ defn partial-map
            (if (empty? list-of-number) total)
            (recur (rest list-of-numbers) (+ (first list-of-numbers) total))))
        (sum (1 2 3 4))
+
+
+;; Exercise 32
+;; Given a list, repeat each element in the list multiple times (the number of times being equal to the item's position in the list) .
+
+;; related functions
+;; map-indexed fn flatten repeat
+
+(defn incresing-repeat 
+  [values] (->> (map-indexed (fn [index value]
+                              (repeat (inc index) value))values) (flatten)))
+(incresing-repeat [a b c d])
