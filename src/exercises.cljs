@@ -267,3 +267,26 @@ defn partial-map
 
 (defn insert-vector
   [v index value] (into (conj (subvec v 0 index) value) (subvec v index)))
+
+
+;; Exercise 26
+;; Write a function that removes a value at a given index from a vector, moving everything else up.
+;; (defn dissoc-at [v index])
+;; 
+(defn dissoc-at [v index]
+(into (subvec v 0 index) (subvec v (inc index))))
+                                  (dissoc-at[1 2 3 4]1)
+
+
+
+
+;; Exercise 27
+;; summing a list (safe recursion)
+;; Mark as Finished
+;; Write a function to sum a list of numbers. Use recursion, but in a way that doesn't blow the stack.
+
+(defn summing-list 
+  [values] (loop [list-of-numbers numbers total 0]
+           (if (empty? list-of-number) total)
+           (recur (rest list-of-numbers) (+ (first list-of-numbers) total))))
+       (sum (1 2 3 4))
