@@ -259,3 +259,11 @@ defn partial-map
    :all (set/union y z)
    :unique-y (set/difference y z)
    :unique-z (set/difference z y))})
+
+;; Exercise 23
+;; Write a function that inserts a value into a vector at a given index (moving all subsequent values) .
+
+;; (defn insert-at [v index value])
+
+(defn insert-vector
+  [v index value] (into (conj (subvec v 0 index) value) (subvec v index)))
