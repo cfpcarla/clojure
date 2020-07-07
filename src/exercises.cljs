@@ -291,6 +291,19 @@ defn partial-map
            (recur (rest list-of-numbers) (+ (first list-of-numbers) total))))
        (sum (1 2 3 4))
 
+;; Exercise 28 - merging maps
+;; Write a function that takes two lists of maps and combines the corresponding pairs.
+(defn join-maps [col1 col2] (map merge col1 col2))
+                                  
+;; Exercise 29  - Make pmap
+;; pmap is a built-in function that acts just like map, except it runs the functions over the collection in parallel.
+;; Implement your own version of pmap and test that it works by using time to compare the performance of the normal map and your version of pmap. You can use Thread/sleep inside a function to simulate a long running process.      
+ (defn my-pmap
+         [f coll]
+         (->> (map (fn [x]
+                     (future (f x)))
+                   coll)
+              (map deref)))                           
 
 ;; Exercise 32
 ;; Given a list, repeat each element in the list multiple times (the number of times being equal to the item's position in the list) .
