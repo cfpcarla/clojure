@@ -277,9 +277,6 @@ defn partial-map
 (into (subvec v 0 index) (subvec v (inc index))))
                                   (dissoc-at[1 2 3 4]1)
 
-
-
-
 ;; Exercise 27
 ;; summing a list (safe recursion)
 ;; Mark as Finished
@@ -291,9 +288,11 @@ defn partial-map
            (recur (rest list-of-numbers) (+ (first list-of-numbers) total))))
        (sum (1 2 3 4))
 
+
 ;; Exercise 28 - merging maps
 ;; Write a function that takes two lists of maps and combines the corresponding pairs.
 (defn join-maps [col1 col2] (map merge col1 col2))
+                                  
                                   
 ;; Exercise 29  - Make pmap
 ;; pmap is a built-in function that acts just like map, except it runs the functions over the collection in parallel.
@@ -307,8 +306,6 @@ defn partial-map
 
 ;; Exercise 32
 ;; Given a list, repeat each element in the list multiple times (the number of times being equal to the item's position in the list) .
-
-;; related functions
 ;; map-indexed fn flatten repeat
 
 (defn incresing-repeat 
