@@ -268,6 +268,18 @@ defn partial-map
 (defn insert-vector
   [v index value] (into (conj (subvec v 0 index) value) (subvec v index)))
 
+;; Exercise 24 - Regex extraction
+;; Given a string like "Lastname, Firstname (some title)", use a regular expression to extract out the first name, last name, and title.
+
+(defn extract-info 
+  [string] 
+  (let [[_ lastn firstn title] (re-matches #"([^,]+), ([^(]+) \(([^)]+)\)"
+                                           string)]
+    {:first firstn
+     :last lastn
+     :title title})))
+
+
 
 ;; Exercise 26
 ;; Write a function that removes a value at a given index from a vector, moving everything else up.
