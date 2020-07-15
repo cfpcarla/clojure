@@ -280,6 +280,13 @@ defn partial-map
      :title title})))
 
 
+;; Exercise 25 - regex searching
+;; Given a string of text, find all the substrings inside of it that are phone numbers.
+
+(defn find-phone-numbers
+  [text]
+  (->> text
+       (re-seq #"(?:\+?\d[- ])?(?:\(\d{3}\)|\d{3})[- ]\d{3}[- ]\d{4}")))
 
 ;; Exercise 26
 ;; Write a function that removes a value at a given index from a vector, moving everything else up.
