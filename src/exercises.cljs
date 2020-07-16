@@ -334,8 +334,15 @@ defn partial-map
 
  
 
-;;  Exercise
+;;  Exercise- 2d transpose
 ;;  Write a function that takes a matrix as a vector of vectors and inverts it.
  
  (defn transpose [data]
    (apply mapv vector data))
+
+
+;; Given a string that represents a section of DNA, ex. "ATAGCAGGTA", return a count of each nucleotide.
+(require '[clojure.string :as string])
+(defn count-nucleotides [data]
+  ( -> data (str/split ifo #"")
+   frequencies))
