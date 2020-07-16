@@ -405,3 +405,10 @@ defn partial-map
                        " other things.")
      :name name
      :info info}))
+
+
+;; dot products
+;; Write a function to compute the dot product of two vectors.
+
+(defn dot [a b]
+  (->> (map * a b ) (reduce + 0)))
