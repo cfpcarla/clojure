@@ -331,3 +331,11 @@ defn partial-map
   [values] (->> (map-indexed (fn [index value]
                               (repeat (inc index) value))values) (flatten)))
 (incresing-repeat [a b c d])
+
+ 
+
+;;  Exercise
+;;  Write a function that takes a matrix as a vector of vectors and inverts it.
+ 
+ (defn transpose [data]
+   (apply mapv vector data))
